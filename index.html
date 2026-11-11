@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Student Visa Decision Helper</title>
+<meta name="description" content="Compare real student visa approval rates for your nationality in Australia, New Zealand and the UK, and check what you still need before you apply.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="wrap">
+  <h1>Student Visa Decision Helper</h1>
+  <p class="lede">Compare real 2022–2025 student visa approval rates for your nationality in
+  <strong>Australia</strong>, <strong>New Zealand</strong> and the <strong>United Kingdom</strong>,
+  then check what you still need before you apply.</p>
+  <p class="privacy">Everything runs in your browser. Nothing you enter is uploaded or saved anywhere except this device.</p>
+</header>
+
+<main class="wrap">
+  <section class="panel" aria-labelledby="step1">
+    <h2 id="step1"><span class="step">1</span> Your nationality</h2>
+    <label for="country" class="sr">Nationality</label>
+    <input id="country" list="country-list" placeholder="Start typing, e.g. India, Nepal, Vietnam…" autocomplete="off">
+    <datalist id="country-list"></datalist>
+    <p id="country-msg" class="muted"></p>
+  </section>
+
+  <section id="rates" class="panel" hidden aria-labelledby="step2">
+    <h2 id="step2"><span class="step">2</span> How often people like you were approved</h2>
+    <p class="muted">Share of decided applications that were approved, 2022–2025, for <strong id="rates-country"></strong>.</p>
+    <div id="cards" class="cards"></div>
+    <p class="note">These are past group averages, not your personal chance. Your own result depends on your documents, your course and how clearly you explain your plans.</p>
+  </section>
+
+  <section id="check" class="panel" hidden aria-labelledby="step3">
+    <h2 id="step3"><span class="step">3</span> Are you ready to apply?</h2>
+    <div class="tabs" role="tablist" id="tabs"></div>
+    <div id="checklist"></div>
+  </section>
+
+  <section id="compare" class="panel" hidden aria-labelledby="step4">
+    <h2 id="step4"><span class="step">4</span> Side by side</h2>
+    <div class="table-scroll"><table id="compare-table"></table></div>
+  </section>
+</main>
+
+<footer class="wrap">
+  <h2>About the data</h2>
+  <ul>
+    <li><strong>Australia</strong>: Department of Home Affairs student visa grant rates, primary applicants outside Australia, Higher Education Sector.</li>
+    <li><strong>New Zealand</strong>: Immigration New Zealand annual student visa decisions, offshore applicants.</li>
+    <li><strong>United Kingdom</strong>: Home Office entry clearance visa outcomes, Student route main applicants; withdrawn and lapsed applications excluded.</li>
+  </ul>
+  <p>Counts come from the public <a href="https://doi.org/10.5281/zenodo.21446641">Country-to-Visa dataset</a> on Zenodo; the Australia and New Zealand tables were prepared with
+  <a href="https://github.com/vitalii-kaplan/au-nz-comparison">vitalii-kaplan/au-nz-comparison</a>.
+  Approval rate = approved ÷ (approved + refused). Groups differ between countries (course levels, where people apply from), so compare with care.</p>
+  <p><strong>This is not legal or migration advice.</strong> Requirements summaries can go out of date: always check the official page, or talk to a registered migration adviser.</p>
+</footer>
+
+<script src="data/rates.js"></script>
+<script src="data/requirements.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
